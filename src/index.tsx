@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import App from "./app/App";
-// import ContextProvider from "./app/contex/ContextProvider"; // Folder nomi 'context' ekanligini tekshirib oling
+import ContextProvider from "./app/contex/ContextProvider"; // Folder nomi 'context' ekanligini tekshirib oling
 import { store } from "./app/store"; // Loyihangizdagi store joylashuvi (kerak bo'lsa yo'lini moslang)
 import reportWebVitals from "./reportWebVitals";
 import theme from "./app/MaterialTheme";
@@ -16,9 +16,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router>
-        <App />
-      </Router>
+      <ContextProvider>
+        <Router>
+          <App />
+        </Router>
+      </ContextProvider>
     </Provider>
   </React.StrictMode>,
 );

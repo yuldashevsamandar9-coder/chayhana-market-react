@@ -14,7 +14,11 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": ["src"]
 }
