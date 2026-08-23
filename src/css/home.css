@@ -275,9 +275,9 @@
 }
 
 .homepage .cards-frame .card {
-  margin: 5px;
-  min-height: 305px;
-  min-width: 305px;
+  height: 360px;
+  width: 23%;
+  min-width: unset !important;
   cursor: pointer;
 }
 

@@ -339,12 +339,13 @@ export default function Products(props: ProductsProps) {
           <Stack className={"address-area"}>
             <Box className={"title"}>Our address</Box>
             <iframe
-              style={{ marginTop: "60px" }}
-              src="https://map.kakao.com/?q=%EB%8C%80%EC%A0%84%20%EB%8F%99%EA%B5%AC%20%EC%84%B1%EB%8F%99%EB%A1%9C7%EB%B2%88%EA%B8%B8%2012-11%201%EC%B8%B5"
-              width="1320"
-              height="500"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Google Maps"
+              src="https://www.google.com/maps/embed?pb=!1m5!3m3!1m2!1s0x3565488e9bc8082f%3A0x5f9dd1f01f1611ec!2z7LCo7J207ZWY64KY!5e0!3m2!1sko!2skr!4v1787467667306!5m2!1sko!2skr"
+              width="600"
+              height="450"
+              style={{ border: "0" }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="strict-origin-when-cross-origin"
             ></iframe>
           </Stack>
         </Container>

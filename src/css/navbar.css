@@ -2,13 +2,15 @@
   width: 100%;
   height: 773px;
   display: flex;
-
+  background-color: #073b04ad;
   background-size: cover;
 }
 
 .home-navbar .navbar-container {
   margin-top: 55px;
   height: 642px;
+  position: relative;
+  z-index: 100;
 }
 
 .home-navbar .navbar-container .menu {
@@ -17,6 +19,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  position: relative;
+  z-index: 1000;
 }
 
 .home-navbar .navbar-container .menu .brand-logo {
@@ -30,6 +35,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  position: relative;
+  z-index: 1000;
 }
 
 .home-navbar .navbar-container .menu .links .login-button {
@@ -47,9 +55,19 @@
   text-decoration: none;
 }
 
+/* NAVBAR LINKS */
+.home-navbar .hover-line {
+  position: relative;
+  z-index: 1000;
+  cursor: pointer;
+}
+
 .home-navbar .hover-line a {
+  position: relative;
+  z-index: 1001;
   color: #f8f8ff;
-  z-index: 100;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 .home-navbar .underline {
@@ -127,11 +145,13 @@
 
 .home-navbar .navbar-container .detail .signup {
   margin-top: 73px;
+  margin-left: 0;
 }
 
 .home-navbar .navbar-container .detail .signup .signup-button {
   width: 210px;
   height: 60px;
+  margin-left: 0;
   border-radius: 4px;
   background: #1976d2;
   text-align: center;
@@ -158,17 +178,23 @@
   filter: invert(25%);
 }
 
+/* =========================================================
+   OTHER NAVBAR
+   ========================================================= */
+
 .other-navbar {
   width: 100%;
   height: 400px;
   display: flex;
-  /* background: url("/public/img/banner.webp"); */
+  background-color: #102d1b;
   background-size: cover;
 }
 
 .other-navbar .navbar-container {
   margin-top: 55px;
   /* height: 642px; */
+  position: relative;
+  z-index: 100;
 }
 
 .other-navbar .navbar-container .menu {
@@ -177,6 +203,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  position: relative;
+  z-index: 1000;
 }
 
 .other-navbar .navbar-container .menu .brand-logo {
@@ -190,6 +219,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  position: relative;
+  z-index: 1000;
 }
 
 .other-navbar .navbar-container .menu .links .login-button {
@@ -207,9 +239,19 @@
   text-decoration: none;
 }
 
+/* NAVBAR LINKS */
+.other-navbar .hover-line {
+  position: relative;
+  z-index: 1000;
+  cursor: pointer;
+}
+
 .other-navbar .hover-line a {
+  position: relative;
+  z-index: 1001;
   color: #f8f8ff;
-  z-index: 100;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 .other-navbar .underline {
@@ -234,7 +276,9 @@
   transform-origin: 0% 50%;
 }
 
-/* BASKET */
+/* =========================================================
+   BASKET
+   ========================================================= */
 
 .basket-frame {
   position: relative;
@@ -369,27 +413,24 @@
   flex-direction: column;
 }
 
+/* =========================================================
+   FEATURES
+   ========================================================= */
+
 .features-block {
   width: 100%;
   max-width: 900px;
-
   margin-top: 45px;
   padding: 20px 25px;
-
   box-sizing: border-box;
-
   display: flex !important;
   flex-direction: row !important;
   align-items: center !important;
   justify-content: space-between !important;
-
   border: 1px solid rgba(200, 169, 106, 0.45);
   border-radius: 16px;
-
   background: rgba(13, 31, 23, 0.85);
-
   backdrop-filter: blur(10px);
-
   flex-shrink: 0;
 }
 
@@ -397,130 +438,105 @@
   display: flex !important;
   flex-direction: row !important;
   align-items: center !important;
-
   gap: 14px;
-
   flex: 1;
 }
 
 .feature-icon {
   width: 48px;
   height: 48px;
-
   min-width: 48px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border: 2px solid #c8a96a;
   border-radius: 50%;
-
   font-size: 21px;
 }
 
 .feature-title {
   color: #f5f5f5;
-
   font-size: 16px;
   font-weight: 600;
 }
 
 .feature-description {
   margin-top: 5px;
-
   color: #a8b5a0;
-
   font-size: 12px;
 }
 
 .feature-divider {
   width: 1px;
   height: 50px;
-
   flex-shrink: 0;
-
   margin: 0 20px;
-
   background: rgba(200, 169, 106, 0.4);
 }
+
+/* =========================================================
+   CHAYHANA BRAND
+   ========================================================= */
 
 .chayhana-brand {
   display: flex !important;
   flex-direction: row !important;
   align-items: center !important;
   justify-content: flex-start !important;
-
   gap: 10px;
-
   text-decoration: none;
-
   width: auto;
 }
 
 /* CM icon */
+
 .chayhana-logo-icon {
   width: 52px;
   height: 52px;
-
   min-width: 52px;
-
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-
   flex-shrink: 0;
 }
 
 .chayhana-logo-icon svg {
   width: 52px;
   height: 52px;
-
   display: block;
 }
 
 /* CHAYHANA / MARKET / Halal & Fresh */
+
 .chayhana-logo-text {
   display: flex !important;
   flex-direction: column !important;
-
   align-items: flex-start !important;
   justify-content: center !important;
-
   text-align: left !important;
-
   line-height: 1;
 }
 
 .chayhana-logo-name {
   color: #f5f5f5;
-
   font-size: 21px;
   font-weight: 700;
-
   letter-spacing: 2.5px;
-
   white-space: nowrap;
 }
 
 .chayhana-logo-market {
   color: #c8a96a;
-
   font-size: 12px;
   font-weight: 700;
-
   letter-spacing: 5px;
-
   margin-top: 5px;
 }
 
 .chayhana-logo-tagline {
   color: #2e7d4e;
-
   font-size: 9px;
   font-weight: 500;
-
   letter-spacing: 1.5px;
-
   margin-top: 5px;
 }

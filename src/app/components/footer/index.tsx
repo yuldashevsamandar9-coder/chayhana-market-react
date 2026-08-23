@@ -7,7 +7,7 @@ const Footers = styled.div`
   width: 100%;
   height: 590px;
   display: flex;
-  background: #343434;
+  background: #18250a;
   background-size: cover;
 `;
 
@@ -17,26 +17,28 @@ export default function Footer() {
   return (
     <Footers>
       <Container>
-        <Stack flexDirection={"row"} sx={{ mt: "94px" }}>
-          <Stack flexDirection={"column"} style={{ width: "340px" }}>
+        <Stack direction="row" sx={{ mt: "94px" }}>
+          <Stack direction="column" style={{ width: "340px" }}>
             <Box>
-              <img width={"100px"} src={"/icons/burak.svg"} alt="" />
+              <img width={"100px"} src={"/icons/yasmin-icon.png"} />
             </Box>
             <Box className={"foot-desc-txt"}>
-              Junibiy Koreyaning Dejon hududida joylashgan halal mahsulotlar
-              dukoni
+              "Yasmin Flower Shop - blossoms of beauty, crafted with care."
+              "Where flowers bloom, hearts smile - Yasmin Flower Shop." "Yasmin
+              Flower Shop - turning moments into fragrant memories." "Elegance
+              in every petal - Yasmin Flower Shop."
             </Box>
             <Box className="sns-context">
-              <img src={"/icons/facebook.svg"} alt="" />
-              <img src={"/icons/twitter.svg"} alt="" />
-              <img src={"/icons/instagram.svg"} alt="" />
-              <img src={"/icons/youtube.svg"} alt="" />
+              <img src={"/icons/facebook.svg"} />
+              <img src={"/icons/twitter.svg"} />
+              <img src={"/icons/instagram.svg"} />
+              <img src={"/icons/youtube.svg"} />
             </Box>
           </Stack>
-          <Stack sx={{ ml: "288px" }} flexDirection={"row"}>
+          <Stack sx={{ ml: "288px" }} direction="row">
             <Stack>
               <Box>
-                <Box className={"foot-category-title"}>Bo'limlar</Box>
+                <Box className={"foot-category-title"}>Pages</Box>
                 <Box className={"foot-category-link"}>
                   <Link to="/">Home</Link>
                   <Link to="/products">Products</Link>
@@ -48,29 +50,28 @@ export default function Footer() {
             <Stack sx={{ ml: "100px" }}>
               <Box>
                 <Box className={"foot-category-title"}>Find us</Box>
-                <Box
-                  flexDirection={"column"}
-                  sx={{ mt: "20px" }}
+                <Stack
+                  direction="column"
+                  sx={{ mt: "20px", justifyContent: "space-between" }}
                   className={"foot-category-link"}
-                  justifyContent={"space-between"}
                 >
-                  <Box flexDirection={"row"} className={"find-us"}>
+                  <Box sx={{ flexDirection: "row" }} className={"find-us"}>
                     <span>L.</span>
                     <div>Downtown, Dubai</div>
                   </Box>
                   <Box className={"find-us"}>
                     <span>P.</span>
-                    <div>010-4711-9737</div>
+                    <div>+971 4 554 7777</div>
                   </Box>
                   <Box className={"find-us"}>
                     <span>E.</span>
-                    <div>chayhanamarket@gmail.com</div>
+                    <div>yotoqxona.com@gmail.com</div>
                   </Box>
                   <Box className={"find-us"}>
                     <span>H.</span>
                     <div>Visit 24 hours</div>
                   </Box>
-                </Box>
+                </Stack>
               </Box>
             </Stack>
           </Stack>
@@ -79,7 +80,7 @@ export default function Footer() {
           style={{ border: "1px solid #C5C8C9", width: "100%", opacity: "0.2" }}
           sx={{ mt: "80px" }}
         ></Stack>
-        <Stack className={"copyright-txt"}>MITSAM</Stack>
+        <Stack className={"copyright-txt"}>© MIMatthew.</Stack>
       </Container>
     </Footers>
   );

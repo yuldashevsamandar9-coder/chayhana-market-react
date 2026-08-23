@@ -51,29 +51,152 @@ export default function OtherNavbar(props: OtherNavbarProps) {
       <Container className="navbar-container">
         <Stack className="menu">
           <Box>
-            <NavLink to="/">
-              <img className="brand-logo" src="" alt="" />
+            <NavLink to="/" className="chayhana-brand">
+              <Box className="chayhana-logo-icon">
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  {/* Tashqi ramka */}
+                  <rect
+                    x="5"
+                    y="5"
+                    width="38"
+                    height="38"
+                    rx="8"
+                    fill="none"
+                    stroke="#C8A96A"
+                    strokeWidth="1.5"
+                  />
+
+                  {/* 8 qirrali naqsh */}
+                  <path
+                    d="
+                  M24 2
+                  L29 8
+                  L37 7
+                  L40 15
+                  L46 19
+                  L42 27
+                  L45 35
+                  L37 40
+                  L35 47
+                  L27 43
+                  L24 46
+                  L21 43
+                  L13 47
+                  L11 40
+                  L3 35
+                  L6 27
+                  L2 19
+                  L8 15
+                  L11 7
+                  L19 8
+                  Z
+                "
+                    fill="none"
+                    stroke="#C8A96A"
+                    strokeWidth="1.2"
+                  />
+
+                  {/* Ichki aylana */}
+                  <circle
+                    cx="24"
+                    cy="24"
+                    r="11"
+                    fill="#0D1F17"
+                    stroke="#C8A96A"
+                    strokeWidth="1.5"
+                  />
+
+                  {/* CM */}
+                  <text
+                    x="24"
+                    y="28"
+                    textAnchor="middle"
+                    fill="#C8A96A"
+                    fontSize="10"
+                    fontWeight="700"
+                    fontFamily="Arial, sans-serif"
+                  >
+                    CM
+                  </text>
+
+                  {/* yuqori bezak */}
+                  <path
+                    d="M24 5 L27 11 L24 14 L21 11 Z"
+                    fill="none"
+                    stroke="#C8A96A"
+                    strokeWidth="1"
+                  />
+
+                  {/* pastki bezak */}
+                  <path
+                    d="M24 43 L27 37 L24 34 L21 37 Z"
+                    fill="none"
+                    stroke="#C8A96A"
+                    strokeWidth="1"
+                  />
+
+                  {/* chap bezak */}
+                  <path
+                    d="M5 24 L11 21 L14 24 L11 27 Z"
+                    fill="none"
+                    stroke="#C8A96A"
+                    strokeWidth="1"
+                  />
+
+                  {/* o‘ng bezak */}
+                  <path
+                    d="M43 24 L37 21 L34 24 L37 27 Z"
+                    fill="none"
+                    stroke="#C8A96A"
+                    strokeWidth="1"
+                  />
+                </svg>
+              </Box>
+
+              <Box className="chayhana-logo-text">
+                <Box className="chayhana-logo-name">CHAYHANA</Box>
+
+                <Box className="chayhana-logo-market">MARKET</Box>
+
+                <Box className="chayhana-logo-tagline">Halal & Fresh</Box>
+              </Box>
             </NavLink>
           </Box>
+
           <Stack className="links">
             <Box className="hover-line">
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/" activeClassName="underline">
+                Home
+              </NavLink>
             </Box>
             <Box className="hover-line">
-              <NavLink to="/products">Products</NavLink>
+              <NavLink to="/products" activeClassName="underline">
+                Products
+              </NavLink>
             </Box>
             {authMember && (
               <Box className="hover-line">
-                <NavLink to="/orders">Orders</NavLink>
+                <NavLink to="/orders" activeClassName="underline">
+                  Orders
+                </NavLink>
               </Box>
             )}
             {authMember && (
               <Box className="hover-line">
-                <NavLink to="/member-page">My Page</NavLink>
+                <NavLink to="/member-page" activeClassName="underline">
+                  My Page
+                </NavLink>
               </Box>
             )}
             <Box className="hover-line">
-              <NavLink to="/help">Help</NavLink>
+              <NavLink to="/help" activeClassName="underline">
+                Help
+              </NavLink>
             </Box>
 
             {/* BASKET */}

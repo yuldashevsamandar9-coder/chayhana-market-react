@@ -36,7 +36,7 @@ export default function HomePage() {
         page: 1,
         limit: 4,
         order: "productViews",
-        productCollection: ProductCollection.MEAT,
+        productCollection: ProductCollection.DRINKS,
       })
       .then((data) => {
         setPopularMenu(data);
@@ -49,7 +49,7 @@ export default function HomePage() {
         page: 1,
         limit: 4,
         order: "createdAt",
-        productCollection: ProductCollection.MEAT,
+        productCollection: ProductCollection.GROCERIES,
       })
       .then((data) => {
         setNewMenu(data);
