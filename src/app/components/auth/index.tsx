@@ -118,6 +118,8 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
 
       // Saving Authenticated user
       setAuthMember(result); // Saving Authenticated user
+      setMemberNick("");
+      setMemberPassword("");
       handleLoginClose();
     } catch (err) {
       console.log(err);
@@ -149,10 +151,11 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
             <Stack sx={{ marginLeft: "69px", alignItems: "center" }}>
               <h2>Signup Form</h2>
               <TextField
-                sx={{ marginTop: "7px" }}
-                id="outlined-basic"
+                id="login-username"
                 label="username"
                 variant="outlined"
+                sx={{ my: "10px" }}
+                autoComplete="new-password"
                 onChange={handleUsername}
               />
               <TextField
@@ -160,12 +163,15 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
                 id="outlined-basic"
                 label="phone number"
                 variant="outlined"
+                autoComplete="off"
                 onChange={handlePhone}
               />
               <TextField
-                id="outlined-basic"
+                id="login-password"
                 label="password"
                 variant="outlined"
+                type="password"
+                autoComplete="new-password"
                 onChange={handlePassword}
                 onKeyDown={handlePasswordKeyDown}
               />
@@ -211,18 +217,22 @@ export default function AuthenticationModal(props: AuthenticationModalProps) {
             >
               <h2>Login Form</h2>
               <TextField
-                id="outlined-basic"
+                id="login-username-input"
                 label="username"
                 variant="outlined"
                 sx={{ my: "10px" }}
+                value={memberNick}
+                autoComplete="new-password"
                 onChange={handleUsername}
               />
 
               <TextField
-                id={"outlined-basic"}
-                label={"password"}
-                variant={"outlined"}
-                type={"password"}
+                id="login-password-input"
+                label="password"
+                variant="outlined"
+                type="password"
+                value={memberPassword}
+                autoComplete="new-password"
                 onChange={handlePassword}
                 onKeyDown={handlePasswordKeyDown}
               />

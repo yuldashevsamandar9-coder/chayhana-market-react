@@ -1,6 +1,13 @@
 import { Box, Stack } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper/modules";
+// 1. Modullarni directly import qiling
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+
+// 2. Swiper stillarini import qilishni unutmang
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
 import { plans } from "../../../lib/data/plans";
 
 export default function Events() {
@@ -12,7 +19,9 @@ export default function Events() {
         </Box>
 
         <Swiper
-          className={"events-info swiper-wrapper"}
+          // 3. Modullarni shu yerda ro'yxatdan o'tkazing
+          modules={[Autoplay, Navigation, Pagination]}
+          className={"events-info"}
           slidesPerView={"auto"}
           centeredSlides={true}
           spaceBetween={30}

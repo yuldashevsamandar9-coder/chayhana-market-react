@@ -12,6 +12,11 @@ import TabPanel from "@mui/lab/TabPanel";
 import "../../../css/help.css";
 import { faq } from "../../../lib/data/faq";
 import { terms } from "../../../lib/data/terms";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/free-mode";
+import "swiper/css/thumbs";
 
 export default function HelpPage() {
   const [value, setValue] = React.useState("1");
@@ -75,7 +80,7 @@ export default function HelpPage() {
                   <Stack className={"admin-letter-container"}>
                     <Box className={"admin-letter-frame"}>
                       <span>Contact us!</span>
-                      <p>Fill out below form to send a message!</p>
+                      <p>Fill out the form below to send your message.</p>
                     </Box>
                     <form
                       action={"#"}
@@ -83,7 +88,7 @@ export default function HelpPage() {
                       className={"admin-letter-frame"}
                     >
                       <div className={"admin-input-box"}>
-                        <label>Your name</label>
+                        <label>Your Name</label>
                         <input
                           type={"text"}
                           name={"memberNick"}
@@ -91,7 +96,7 @@ export default function HelpPage() {
                         />
                       </div>
                       <div className={"admin-input-box"}>
-                        <label>Your email</label>
+                        <label>Your Email</label>
                         <input
                           type={"text"}
                           name={"memberEmail"}

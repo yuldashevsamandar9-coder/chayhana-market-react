@@ -114,7 +114,7 @@ export default function OrdersPage() {
                   <img
                     src={
                       authMember?.memberType === MemberType.SHOPDUKON
-                        ? "/icons/restaurant.svg"
+                        ? ""
                         : "/icons/user-badge.svg"
                     }
                     className={"order-user-prof-img"}

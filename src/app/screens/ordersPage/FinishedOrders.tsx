@@ -26,31 +26,39 @@ export default function FinishedOrders() {
           return (
             <Box key={order._id} className={"order-main-box"}>
               <Box className={"order-box-scroll"}>
-                {order?.orderItems?.map((item: OrderItem) => {
-                  const product: Product = order.productData.filter(
-                    (ele: Product) => item.productId === ele._id,
-                  )[0];
-                  const imagePath = `${serverApi}/${product.productImages[0]}`;
-                  return (
-                    <Box key={item._id} className={"orders-name-price"}>
-                      <img
-                        src={imagePath}
-                        className={"order-dish-img"}
-                        alt=""
-                      />
-                      <p className={"title-dish"}>{product.productName}</p>
-                      <Box className={"price-box"}>
-                        <p>${item.itemPrice}</p>
-                        <img src={"/icons/close.svg"} alt="" />
-                        <p>{item.itemQuantity}</p>
-                        <img src={"/icons/pause.svg"} alt="" />
-                        <p style={{ marginLeft: "15px" }}>
-                          ${item.itemQuantity * item.itemPrice}
-                        </p>
+                {/* Shuyerdan boshlab almashtirasiz: */}
+                {order?.orderItems
+                  ?.filter((item: OrderItem) =>
+                    order.productData?.some(
+                      (ele: Product) => item.productId === ele._id,
+                    ),
+                  )
+                  .map((item: OrderItem) => {
+                    const product = order.productData.find(
+                      (ele: Product) => item.productId === ele._id,
+                    )!;
+                    const imagePath = `${serverApi}/${product.productImages[0]}`;
+
+                    return (
+                      <Box key={item._id} className={"orders-name-price"}>
+                        <img
+                          src={imagePath}
+                          className={"order-dish-img"}
+                          alt={product.productName}
+                        />
+                        <p className={"title-dish"}>{product.productName}</p>
+                        <Box className={"price-box"}>
+                          <p>${item.itemPrice}</p>
+                          <img src={"/icons/close.svg"} alt="" />
+                          <p>{item.itemQuantity}</p>
+                          <img src={"/icons/pause.svg"} alt="" />
+                          <p style={{ marginLeft: "15px" }}>
+                            ${item.itemQuantity * item.itemPrice}
+                          </p>
+                        </Box>
                       </Box>
-                    </Box>
-                  );
-                })}
+                    );
+                  })}
               </Box>
 
               <Box className={"total-price-box"}>
@@ -77,20 +85,15 @@ export default function FinishedOrders() {
           );
         })}
 
-        {!finishedOrders ||
-          (finishedOrders.length === 0 && (
-            <Box
-              display={"flex"}
-              flexDirection={"row"}
-              justifyContent={"center"}
-            >
-              <img
-                src={"/icons/noimage-list.svg"}
-                style={{ width: 300, height: 300 }}
-                alt=""
-              />
-            </Box>
-          ))}
+        {(!finishedOrders || finishedOrders.length === 0) && (
+          <Box display={"flex"} flexDirection={"row"} justifyContent={"center"}>
+            <img
+              src={"/icons/noimage-list.svg"}
+              style={{ width: 300, height: 300 }}
+              alt=""
+            />
+          </Box>
+        )}
       </Stack>
     </TabPanel>
   );

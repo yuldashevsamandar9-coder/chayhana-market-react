@@ -5,6 +5,8 @@ import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import Divider from "../../components/divider";
 import Button from "@mui/material/Button";
 import Rating from "@mui/material/Rating";
+
+// Swiper stillari
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
@@ -15,10 +17,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "@reduxjs/toolkit";
 import { setShopDukon, setChosenProduct } from "./slice";
 import { createSelector } from "reselect";
-import {
-  retrieveShopDukon as retrieveShopDukon,
-  retrieveChosenProduct,
-} from "./selector";
+import { retrieveShopDukon, retrieveChosenProduct } from "./selector";
 import type { Product } from "../../../lib/types/product";
 import { Member } from "../../../lib/types/member";
 import ProductService from "../../services/ProductService";
@@ -35,13 +34,11 @@ const actionDispatch = (dispatch: Dispatch) => ({
 
 const chosenProductRetriever = createSelector(
   retrieveChosenProduct,
-  (chosenProduct) => ({
-    chosenProduct,
-  }),
+  (chosenProduct) => ({ chosenProduct }),
 );
 
 const shopDukonRetriever = createSelector(retrieveShopDukon, (shopdukon) => ({
-  shopdukon: shopdukon,
+  shopdukon,
 }));
 
 export interface ChosenProductProps {
@@ -51,9 +48,7 @@ export interface ChosenProductProps {
 export default function ChosenProduct(props: ChosenProductProps) {
   const { onAdd } = props;
   const { productId } = useParams<{ productId: string }>();
-  console.log("productId =", productId);
-  const { setShopDukon: setShopDukon, setChosenProduct } =
-    actionDispatch(useDispatch());
+  const { setShopDukon, setChosenProduct } = actionDispatch(useDispatch());
   const { chosenProduct } = useSelector(chosenProductRetriever);
   const { shopdukon } = useSelector(shopDukonRetriever);
 
@@ -61,11 +56,7 @@ export default function ChosenProduct(props: ChosenProductProps) {
     const product = new ProductService();
     product
       .getProduct(productId)
-
-      .then((data) => {
-        console.log("API data:", data);
-        setChosenProduct(data);
-      })
+      .then((data) => setChosenProduct(data))
       .catch((err) => console.log(err));
 
     const member = new MemberService();
@@ -77,28 +68,45 @@ export default function ChosenProduct(props: ChosenProductProps) {
 
   if (!chosenProduct) return null;
 
+  // Rasmlar mavjudligini va sonini tekshirish
+  const hasImages =
+    chosenProduct?.productImages && chosenProduct.productImages.length > 0;
+  const isLoopable = (chosenProduct?.productImages?.length ?? 0) > 1;
+
   return (
     <div className={"chosen-product"}>
       <Box className={"title"}>Product Detail</Box>
       <Container className={"product-container"}>
         <Stack className={"chosen-product-slider"}>
-          <Swiper
-            loop={true}
-            spaceBetween={10}
-            navigation={true}
-            modules={[FreeMode, Navigation, Thumbs]}
-            className="swiper-area"
-          >
-            {chosenProduct?.productImages.map((ele: string, index: number) => {
-              const imagePath = `${serverApi}/${ele}`;
-              return (
-                <SwiperSlide key={index}>
-                  <img className="slider-image" src={imagePath} alt="" />
-                </SwiperSlide>
-              );
-            })}
-          </Swiper>
+          {hasImages ? (
+            <Swiper
+              key={chosenProduct._id} // Data yangilanganda Swiper'ni qayta ishga tushirish uchun
+              loop={isLoopable}
+              spaceBetween={10}
+              navigation={true}
+              modules={[FreeMode, Navigation, Thumbs]}
+              className="swiper-area"
+            >
+              {chosenProduct.productImages.map((ele: string, index: number) => {
+                const imagePath = `${serverApi}/${ele}`;
+                return (
+                  <SwiperSlide key={index}>
+                    <img className="slider-image" src={imagePath} alt="" />
+                  </SwiperSlide>
+                );
+              })}
+            </Swiper>
+          ) : (
+            <Box className="swiper-area">
+              <img
+                className="slider-image"
+                src="/icons/noimage-list.svg"
+                alt=""
+              />
+            </Box>
+          )}
         </Stack>
+
         <Stack className={"chosen-product-info"}>
           <Box className={"info-box"}>
             <strong className={"product-name"}>
@@ -111,14 +119,12 @@ export default function ChosenProduct(props: ChosenProductProps) {
               <div className={"evaluation-box"}>
                 <div className={"product-view"}>
                   <RemoveRedEyeIcon sx={{ mr: "10px" }} />
-                  <span>{chosenProduct?.productViews}</span>
+                  <span>{chosenProduct?.productViews || 0}</span>
                 </div>
               </div>
             </Box>
             <p className={"product-desc"}>
-              {chosenProduct?.productDesc
-                ? chosenProduct?.productDesc
-                : "NO description"}
+              {chosenProduct?.productDesc || "NO description"}
             </p>
             <Divider height="1" width="100%" bg="#000000" />
             <div className={"product-price"}>

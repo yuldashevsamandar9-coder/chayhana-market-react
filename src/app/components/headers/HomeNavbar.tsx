@@ -222,7 +222,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                 src={
                   authMember?.memberImage
                     ? `${serverApi}/${authMember?.memberImage}`
-                    : ""
+                    : "/icons/default-user.svg"
                 }
                 aria-haspopup="true"
                 onClick={(e) => {
@@ -283,12 +283,12 @@ export default function HomeNavbar(props: HomeNavbarProps) {
         <Stack className={"header-frame"}>
           <Stack className={"detail"}>
             <Box className={"head-main-text"}>
-              Eng sara mahsulotlarni topishingiz mumkin
+              Find the finest quality products
             </Box>
 
-            <Box className={"wel-txt"}>Halal luqma bilan oziqlaning</Box>
+            <Box className={"wel-txt"}>Nourish yourself with Halal food</Box>
 
-            <Box className={"service-txt"}>24/7 xizmatizdamiz</Box>
+            <Box className={"service-txt"}>At your service 24/7</Box>
 
             <Box className={"signup"}>
               {!authMember ? (
@@ -310,9 +310,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                 <Box>
                   <Box className="feature-title">100% Halal</Box>
 
-                  <Box className="feature-description">
-                    Halol sertifikatlangan
-                  </Box>
+                  <Box className="feature-description">Halal Certified</Box>
                 </Box>
               </Box>
 
@@ -324,7 +322,9 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                 <Box>
                   <Box className="feature-title">Fresh & Quality</Box>
 
-                  <Box className="feature-description">Yangi va sifatli</Box>
+                  <Box className="feature-description">
+                    Fresh & High Quality
+                  </Box>
                 </Box>
               </Box>
 
@@ -335,7 +335,9 @@ export default function HomeNavbar(props: HomeNavbarProps) {
 
                 <Box>
                   <Box className="feature-title">Fast Delivery</Box>
-                  <Box className="feature-description">Tez yetkazib berish</Box>
+                  <Box className="feature-description">
+                    Quick & Reliable Shipping
+                  </Box>
                 </Box>
               </Box>
             </Stack>

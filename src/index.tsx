@@ -8,6 +8,11 @@ import { store } from "./app/store"; // Loyihangizdagi store joylashuvi (kerak b
 import reportWebVitals from "./reportWebVitals";
 import theme from "./app/MaterialTheme";
 import "./css/index.css";
+// src/index.tsx yoki src/App.tsx faylida:
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/navigation";
+import "swiper/css/thumbs";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,

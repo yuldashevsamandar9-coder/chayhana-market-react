@@ -241,7 +241,6 @@ export default function Products(props: ProductsProps) {
                         className="product-img"
                         sx={{ backgroundImage: `url(${imagePath})` }}
                       >
-                        <div className="product-sale">{sizeVolume}</div>
                         <Button
                           className="shop-btn"
                           onClick={(e) => {
@@ -262,7 +261,10 @@ export default function Products(props: ProductsProps) {
                           />
                         </Button>
                         <Button className="view-btn" sx={{ right: "36px" }}>
-                          <Badge badgeContent={20} color="secondary">
+                          <Badge
+                            badgeContent={product?.productViews || 0}
+                            color="secondary"
+                          >
                             <RemoveRedEyeIcon
                               sx={{
                                 color:
@@ -313,26 +315,6 @@ export default function Products(props: ProductsProps) {
           </Stack>
         </Stack>
       </Container>
-
-      <div className="brands-logo">
-        <Container className={"family-brands"}>
-          <Box className={"category-title"}>Our Family Brands</Box>
-          <Stack className={"brand-list"}>
-            <Box className={"review-box"}>
-              <img src={"/img/gurme.webp"} alt="" />
-            </Box>
-            <Box className={"review-box"}>
-              <img src={"/img/seafood.webp"} alt="" />
-            </Box>
-            <Box className={"review-box"}>
-              <img src={"/img/doner.webp"} alt="" />
-            </Box>
-            <Box className={"review-box"}>
-              <img src={"/img/sweets.webp"} alt="" />
-            </Box>
-          </Stack>
-        </Container>
-      </div>
 
       <div className="address">
         <Container>
